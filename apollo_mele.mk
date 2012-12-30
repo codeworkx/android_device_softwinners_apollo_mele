@@ -48,6 +48,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
 
+# Audio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/config/audio_policy.conf:system/etc/audio_policy.conf
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml \
