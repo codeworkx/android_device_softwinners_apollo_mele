@@ -9,5 +9,5 @@
 /data			ext4		/dev/block/nande
 /cache			ext4		/dev/block/nandh
 
-/emmc			vfat		/dev/block/nandi
+/emmc			vfat		/dev/block/nandk
 /sdcard			vfat		/dev/block/mmcblk0p1			/dev/block/mmcblk0
