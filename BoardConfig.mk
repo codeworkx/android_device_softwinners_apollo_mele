@@ -87,5 +87,8 @@ BOARD_UMS_2ND_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/fi
 TARGET_RECOVERY_PRE_COMMAND := "echo -n boot-recovery | busybox dd of=/dev/block/nandf count=1 conv=sync; sync"
 BOARD_HAS_LARGE_FILESYSTEM := true
 
+# assert
+TARGET_OTA_ASSERT_DEVICE := apollo_mele,apollo-mele
+
 # inherit from the proprietary version
 -include vendor/softwinners/apollo_mele/BoardConfigVendor.mk
