@@ -9,6 +9,6 @@
     },
     {
         "repository": "android_external_cedarx",
-        "target_path": "external_cedarx"
+        "target_path": "external/cedarx"
     }
 ]
