@@ -69,14 +69,14 @@ PRODUCT_PACKAGES := \
     libtinyalsa
 
 # CedarX libraries
-PRODUCT_PACKAGES += \
-	libCedarA \
-	libCedarX \
-	libcedarv \
-	libcedarxbase \
-	libcedarxosal \
-	libcedarxsftdemux \
-	libswdrm
+#PRODUCT_PACKAGES += \
+#	libCedarA \
+#	libCedarX \
+#	libcedarv \
+#	libcedarxbase \
+#	libcedarxosal \
+#	libcedarxsftdemux \
+#	libswdrm
 
 # Charger
 PRODUCT_PACKAGES += \
