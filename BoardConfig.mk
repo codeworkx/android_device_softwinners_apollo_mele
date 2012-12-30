@@ -28,8 +28,11 @@ TARGET_BOARD_PLATFORM := sun4i
 TARGET_BOOTLOADER_BOARD_NAME := crane
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/allwinner/sunxi
-TARGET_KERNEL_CONFIG := cyanogenmod_apollo_mele_defconfig
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
+
+#TARGET_KERNEL_SOURCE := kernel/allwinner/sunxi
+#TARGET_KERNEL_CONFIG := cyanogenmod_apollo_mele_defconfig
+
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/init.rc
 
