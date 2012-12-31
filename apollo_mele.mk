@@ -50,7 +50,8 @@ endif
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/modules/mali.ko:system/lib/modules/mali.ko \
-	$(LOCAL_PATH)/modules/ump.ko:system/lib/modules/ump.ko
+	$(LOCAL_PATH)/modules/ump.ko:system/lib/modules/ump.ko \
+	$(LOCAL_PATH)/modules/8192cu.ko:system/lib/modules/8192cu.ko
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilt/load_modules.sh:system/bin/load_modules.sh
