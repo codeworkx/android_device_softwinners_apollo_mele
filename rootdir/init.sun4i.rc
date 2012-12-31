@@ -31,34 +31,7 @@ on fs
     mount ext4 /dev/block/nandh /cache wait noatime nosuid nodev noauto_da_alloc barrier=0
     mount vfat /dev/block/nandi /mnt/private
 
-on boot
-	insmod /system/lib/modules/sun4i-ir.ko
-
-# mali
-	insmod /system/lib/modules/ump.ko
-	insmod /system/lib/modules/mali.ko
-
-# network module
-	insmod /system/lib/modules/usbnet.ko
-	insmod /system/lib/modules/asix.ko
-	insmod /system/lib/modules/qf9700.ko
-	insmod /system/lib/modules/mcs7830.ko
-	insmod /system/lib/modules/rtl8150.ko
-
-# gpio module
-	insmod /system/lib/modules/gpio_sw.ko
-
-# spdif
-	insmod /system/lib/modules/sun4i_spdif.ko	
-	insmod /system/lib/modules/sun4i_spdma.ko
-	insmod /system/lib/modules/sndspdif.ko
-	insmod /system/lib/modules/sun4i_sndspdif.ko
-
-# usb tether function
-   	insmod /system/lib/modules/cdc_ether.ko
-	insmod /system/lib/modules/cdc_eem.ko
-	insmod /system/lib/modules/cdc_subset.ko
-
+on post-fs
 # bluetooth related permissions
 	chmod 0660 /dev/ttyS1
 	chown bluetooth bluetooth /dev/ttyS1
@@ -70,6 +43,14 @@ on boot
 	chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
 	write /sys/class/rfkill/rfkill0/state 0
 	setprop rw.bluetooth.status "0"
+
+on boot
+# Kernel Modules
+service modules /system/bin/load_modules.sh
+    class core
+    user root
+    group root
+    oneshot
 
 # RIL
 service ril-daemon /system/bin/rild -l liballwinner-ril.so -- -d /dev/ttyUSB2
