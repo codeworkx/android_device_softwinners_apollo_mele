@@ -23,6 +23,14 @@ LOCAL_PATH := device/softwinners/apollo_mele
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# This device is mdpi.
+PRODUCT_AAPT_CONFIG := xlarge mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_LOCALES += mdpi
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=160
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.sun4i.rc:root/init.sun4i.rc \
