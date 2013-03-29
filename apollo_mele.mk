@@ -24,7 +24,7 @@ LOCAL_PATH := device/softwinners/apollo_mele
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # This device is mdpi.
-PRODUCT_AAPT_CONFIG := xlarge mdpi
+PRODUCT_AAPT_CONFIG := xlarge mdpi hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_LOCALES += mdpi
 
@@ -49,8 +49,6 @@ else
 endif
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/modules/mali.ko:system/lib/modules/mali.ko \
-	$(LOCAL_PATH)/modules/ump.ko:system/lib/modules/ump.ko \
 	$(LOCAL_PATH)/modules/8192cu.ko:system/lib/modules/8192cu.ko
 
 PRODUCT_COPY_FILES += \
@@ -62,6 +60,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/config/audio_effects.conf:system/etc/audio_effects.conf \
     $(LOCAL_PATH)/config/audio_policy.conf:system/etc/audio_policy.conf
 
 # Media
@@ -91,6 +90,7 @@ PRODUCT_PACKAGES := \
 	audio_policy.default \
 	audio.a2dp.default \
     com.android.future.usb.accessory \
+    gralloc.sun4i \
     libaudioutils \
     libtinyalsa
 
@@ -165,7 +165,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 $(call inherit-product, hardware/realtek/wlan/Android.mk)
 
 # CedarX
-$(call inherit-product, external/cedarx/Android.mk)
+#$(call inherit-product, external/cedarx/Android.mk)
 
 # Use the non-open-source parts, if they're present
 $(call inherit-product-if-exists, vendor/softwinners/apollo_mele/apollo_mele-vendor.mk)

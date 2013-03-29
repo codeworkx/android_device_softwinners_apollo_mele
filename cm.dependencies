@@ -6,9 +6,5 @@
     {
         "repository": "android_hardware_realtek",
         "target_path": "hardware/realtek"
-    },
-    {
-        "repository": "android_external_cedarx",
-        "target_path": "external/cedarx"
     }
 ]

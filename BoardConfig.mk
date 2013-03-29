@@ -16,6 +16,7 @@
 
 LOCAL_PATH := device/softwinners/apollo_mele
 
+TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -28,10 +29,8 @@ TARGET_BOARD_PLATFORM := sun4i
 TARGET_BOOTLOADER_BOARD_NAME := crane
 
 # Kernel
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
-
-#TARGET_KERNEL_SOURCE := kernel/allwinner/sunxi
-#TARGET_KERNEL_CONFIG := cyanogenmod_apollo_mele_defconfig
+TARGET_KERNEL_SOURCE := kernel/allwinner/sunxi
+TARGET_KERNEL_CONFIG := cyanogenmod_apollo_mele_defconfig
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/init.rc
@@ -64,20 +63,20 @@ USE_CAMERA_STUB := true
 
 # Wifi
 BOARD_WIFI_VENDOR				 := realtek
-BOARD_WLAN_DEVICE                := rtl8192cu
-BOARD_WPA_SUPPLICANT_DRIVER 	 := WEXT
+BOARD_WLAN_DEVICE                := rtl8191su #rtl8192cu
+BOARD_WPA_SUPPLICANT_DRIVER 	 := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
-BOARD_HOSTAPD_DRIVER 			 := WEXT
+BOARD_HOSTAPD_DRIVER 			 := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB 		 := lib_driver_cmd_rtl
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/8192cu.ko"
-WIFI_DRIVER_MODULE_NAME          := "8192cu"
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/8192su.ko"
+WIFI_DRIVER_MODULE_NAME          := "8192su"
 WIFI_DRIVER_MODULE_ARG           := ""
 WIFI_DRIVER_FW_PATH_STA          := ""
 WIFI_DRIVER_FW_PATH_AP           := ""
 WIFI_DRIVER_FW_PATH_P2P          := ""
 WIFI_BAND                        := 802_11_ABG
-TARGET_CUSTOM_WIFI 				 := ../../hardware/realtek/wlan/wifi_realtek.c
+TARGET_CUSTOM_WIFI 				 := ../../hardware/realtek/wlan/libhardware_legacy/wifi/wifi_realtek.c
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
